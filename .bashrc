@@ -1,5 +1,4 @@
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DOTFILES="${HOME}/dotfiles"
-
-source "${DOTFILES}/bash/z.sh"
-source "${DOTFILES}/bash/base.sh"
+source "${DOTFILES_DIR}/bash/env.sh"
+source "${DOTFILES_DIR}/bash/z.sh"
+source "${DOTFILES_DIR}/bash/up.sh"
+source "${DOTFILES_DIR}/bash/base.sh"
