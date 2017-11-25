@@ -39,8 +39,15 @@ function symlink() {
     ln -s "${source}" "${dest}"
 }
 
+function install_dependencies() {
+    brew install fzf
+    $(brew --prefix)/opt/fzf/install
+}
+
 function main() {
     preconditions
+
+    install_dependencies
 
     symlink .bashrc "${HOME}"
     symlink .vimrc "${HOME}"

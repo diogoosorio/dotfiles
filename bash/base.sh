@@ -14,3 +14,6 @@ function bash_prompt() {
 
     PS1="\[\e[1;34m\][\D{%H:%M:%S}] \[\e[m\]\w ${status} $ "
 }
+
+# load fzf
+[ -f "${HOME}/.fzf.bash" ] && source "${HOME}/.fzf.bash"
