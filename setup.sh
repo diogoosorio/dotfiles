@@ -18,6 +18,12 @@ function preconditions() {
         output "Bash version >= 4 required." "error"
         return 1
     fi
+
+    local unamestr=$(uname)
+    if [[ "${unamestr}" != "Darwin" ]]; then
+        output "Only Mac OS is supported at this time" "error"
+        return 1
+    fi
 }
 
 function symlink() {
