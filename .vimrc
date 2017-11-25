@@ -8,6 +8,7 @@ call vundle#begin()
     Plugin 'scrooloose/nerdtree'
     Plugin 'kien/ctrlp.vim'
     Plugin 'jnurmine/Zenburn'
+    Plugin 'mileszs/ack.vim'
 call vundle#end()
 filetype plugin indent on
 

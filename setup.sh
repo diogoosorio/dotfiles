@@ -50,6 +50,7 @@ function install_dependencies() {
     fi
 
     brew install reattach-to-user-namespace
+    brew install ack
 
     if [ ! -d "${HOME}/.vim/bundle/Vundle.vim" ]; then
         git clone https://github.com/VundleVim/Vundle.vim.git "${HOME}/.vim/bundle/Vundle.vim"
@@ -64,6 +65,7 @@ function main() {
     symlink .bashrc $HOME
     symlink .vimrc $HOME
     symlink .tmux.conf $HOME
+    symlink .ackrc $HOME
 
     if [ ! -f "${HOME}/.bash_profile" ]; then
         echo "source ${HOME}/.bashrc" > "${HOME}/.bash_profile"
