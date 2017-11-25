@@ -48,6 +48,8 @@ function install_dependencies() {
         git clone https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
         output "Installed the Tmux Plugin Manager. Please run C-I after the setup is finished to install the plugins."
     fi
+
+    brew install reattach-to-user-namespace
 }
 
 function main() {
