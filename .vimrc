@@ -69,3 +69,9 @@ map <leader>d :NERDTreeToggle<CR>
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|venv|virtualenv)$',
+  \ }
+
+" indentation by file type
+au FileType yaml setl sw=2 sts=2 et
