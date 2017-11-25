@@ -15,6 +15,10 @@ filetype plugin indent on
 colors zenburn
 syntax on
 
+" status bar
+set laststatus=2
+set statusline+=%F
+
 " 4 spaces all the things
 let mapleader=","
 set tabstop=4
