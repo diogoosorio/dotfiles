@@ -31,17 +31,23 @@ function symlink() {
     local dest=$2
 
     if [ -f "${dest}/${1}" ] || [ -L "${dest}/${1}" ]; then
-        output "Removing '${dest}/${1}'" "warning"
+        output "Replacing '${dest}/${1}'" "warning"
         rm "${dest}/${1}"
     fi
 
-    output "Symlinking '${source}' to '${dest}'"
     ln -s "${source}" "${dest}"
 }
 
 function install_dependencies() {
-    brew install fzf
-    $(brew --prefix)/opt/fzf/install
+    if [ ! -f "${HOME}/.fzf.bash" ]; then
+        brew install fzf
+        $(brew --prefix)/opt/fzf/install
+    fi
+
+    if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
+        git clone https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
+        output "Installed the Tmux Plugin Manager. Please run C-I after the setup is finished to install the plugins."
+    fi
 }
 
 function main() {
@@ -49,8 +55,13 @@ function main() {
 
     install_dependencies
 
-    symlink .bashrc "${HOME}"
-    symlink .vimrc "${HOME}"
+    symlink .bashrc $HOME
+    symlink .vimrc $HOME
+    symlink .tmux.conf $HOME
+
+    if [ ! -f "${HOME}/.bash_profile" ]; then
+        echo "source ${HOME}/.bashrc" > "${HOME}/.bash_profile"
+    fi
 }
 
 main
