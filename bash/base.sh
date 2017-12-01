@@ -1,5 +1,8 @@
-PATH="/usr/local/bin:${PATH}"
-PROMPT_COMMAND=bash_prompt
+export PATH="/usr/local/bin:${PATH}"
+export PROMPT_COMMAND=bash_prompt
+export TERM=screen-256color
+export EDITOR=vim
+export VISUAL="${EDITOR}"
 
 function status_icon() {
     if [ $? -eq 0 ]; then
