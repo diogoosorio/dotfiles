@@ -59,6 +59,11 @@ set pastetoggle=<F12>
 " enable mouse
 set mouse=a
 
+" tab shortcuts
+nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>tt :tabnext<CR>
+nnoremap <leader>tp :tabprevious<CR>
+
 " sudo save
 cmap w!! w !sudo tee % >/dev/null
 
