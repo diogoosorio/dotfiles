@@ -9,6 +9,7 @@ call vundle#begin()
     Plugin 'kien/ctrlp.vim'
     Plugin 'jnurmine/Zenburn'
     Plugin 'mileszs/ack.vim'
+    Plugin 'jlanzarotta/bufexplorer'
 call vundle#end()
 filetype plugin indent on
 
