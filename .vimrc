@@ -10,6 +10,9 @@ call vundle#begin()
     Plugin 'jnurmine/Zenburn'
     Plugin 'mileszs/ack.vim'
     Plugin 'jlanzarotta/bufexplorer'
+    Plugin 'w0rp/ale'
+    Plugin 'jmcantrell/vim-virtualenv'
+    Plugin 'davidhalter/jedi-vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -19,7 +22,6 @@ syntax on
 
 " status bar
 set laststatus=2
-set statusline+=%F
 
 " 4 spaces all the things
 let mapleader=","
@@ -59,6 +61,10 @@ set pastetoggle=<F12>
 " enable mouse
 set mouse=a
 
+" status line
+set statusline+=%F
+set statusline+=%=%{virtualenv#statusline()}
+
 " tab shortcuts
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>tt :tabnext<CR>
@@ -66,6 +72,18 @@ nnoremap <leader>tp :tabprevious<CR>
 
 " sudo save
 cmap w!! w !sudo tee % >/dev/null
+
+" indentation by file type
+au FileType yaml setl sw=2 sts=2 et
+au FileType yml setl sw=2 sts=2 et
+
+" virtualenv.vim
+let g:virtualenv_stl_format=' [virtualenv: %n] '
+
+if (isdirectory(getcwd() . "/venv"))
+    let g:virtualenv_directory = getcwd()
+    autocmd VimEnter * VirtualEnvActivate venv
+endif
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -79,5 +97,7 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|venv|virtualenv)$',
   \ }
 
-" indentation by file type
-au FileType yaml setl sw=2 sts=2 et
+" jedi-vim
+let g:jedi#goto_command = "<leader>f"
+let g:jedi#goto_assignments_command = "<leader>g"
+autocmd FileType python setlocal completeopt-=preview
