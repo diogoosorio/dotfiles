@@ -73,6 +73,11 @@ nnoremap <leader>tp :tabprevious<CR>
 " sudo save
 cmap w!! w !sudo tee % >/dev/null
 
+" tab navigation
+nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>tt :tabnext<CR>
+nnoremap <leader>tp :tabprevious<CR>
+
 " indentation by file type
 au FileType yaml setl sw=2 sts=2 et
 au FileType yml setl sw=2 sts=2 et
