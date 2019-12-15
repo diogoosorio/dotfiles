@@ -7,7 +7,7 @@ call vundle#begin()
     Plugin 'tpope/vim-fugitive'
     Plugin 'scrooloose/nerdtree'
     Plugin 'kien/ctrlp.vim'
-    Plugin 'jnurmine/Zenburn'
+    Plugin 'morhetz/gruvbox'
     Plugin 'mileszs/ack.vim'
     Plugin 'jlanzarotta/bufexplorer'
     Plugin 'w0rp/ale'
@@ -17,7 +17,8 @@ call vundle#end()
 filetype plugin indent on
 
 " colorscheme
-colors zenburn
+colors gruvbox
+set background=dark
 syntax on
 
 " status bar
