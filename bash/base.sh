@@ -1,4 +1,4 @@
-export PATH="/usr/local/bin:${PATH}"
+export PATH="/usr/local/bin:${HOME}/.rbenv/bin:${PATH}"
 export PROMPT_COMMAND=bash_prompt
 export TERM=screen-256color
 export EDITOR=vim
@@ -20,3 +20,6 @@ function bash_prompt() {
 
 # load fzf
 [ -f "${HOME}/.fzf.bash" ] && source "${HOME}/.fzf.bash"
+
+# load rbenv
+[ -f "${HOME}/.rbenv/bin/rbenv" ] && eval "$(rbenv init -)"
