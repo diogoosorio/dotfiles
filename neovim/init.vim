@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdTree'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'morhetz/gruvbox'
+  Plug 'mileszs/ack.vim'
 call plug#end()
 
 filetype on
@@ -77,3 +78,9 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|venv|virtualenv)$',
   \ }
+
+" Ack.vim
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+
